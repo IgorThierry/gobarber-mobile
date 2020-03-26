@@ -38,8 +38,8 @@ export function* signUp({ payload }) {
             name,
             email,
             password,
-            provider: true,
         });
+        Alert.alert('Sucesso!', 'Usuário criado com sucesso!');
         // history.push('/');
     } catch (error) {
         Alert.alert('Falha ao se cadastrar', 'verifique seus dados!');
