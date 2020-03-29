@@ -13,6 +13,7 @@ import {
     FormInput,
     Separator,
     SubmitButton,
+    LogoutButton
 } from './styles';
 
 export default function Profile() {
@@ -121,9 +122,9 @@ export default function Profile() {
                         Atualizar perfil
                     </SubmitButton>
 
-                    <SubmitButton color="#f64c75" onPress={handleLogout}>
+                    <LogoutButton color="#f64c75" onPress={handleLogout}>
                         Sair
-                    </SubmitButton>
+                    </LogoutButton>
                 </Form>
             </Container>
         </Background>
