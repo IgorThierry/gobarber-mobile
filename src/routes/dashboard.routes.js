@@ -16,11 +16,11 @@ export default function DashboardRoutes() {
                 keyboardHidesTabBar: true,
                 activeTintColor: '#fff',
                 inactiveTintColor: 'rgba(255,255,255, 0.5)',
-                activeBackgroundColor: '#7159c1',
                 style: {
                     backgroundColor: '#8d41a8',
                     borderTopColor: '#8d41a8',
-
+                    paddingTop: 5,
+                    paddingBottom: 5,
                 },
             }}
         >
@@ -38,9 +38,14 @@ export default function DashboardRoutes() {
                 name="NewAppointment"
                 component={NewAppointmentRoutes}
                 options={{
-                    tabBarLabel: 'Novo',
+                    tabBarVisible: false,
+                    tabBarLabel: 'Agendar',
                     tabBarIcon: ({ color }) => (
-                        <Icon name="add" size={20} color={color} />
+                        <Icon
+                            name="add-circle-outline"
+                            size={20}
+                            color={color}
+                        />
                     ),
                 }}
             />
