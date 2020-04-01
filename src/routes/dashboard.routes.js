@@ -47,6 +47,7 @@ export default function DashboardRoutes() {
                             color={color}
                         />
                     ),
+                    unmountOnBlur: true,
                 }}
             />
             <Tab.Screen

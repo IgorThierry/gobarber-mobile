@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import {Alert} from 'react-native';
+import React, { useEffect, useState, useCallback } from 'react';
+import { Alert } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 import api from '~/services/api';
 
 import Background from '~/components/Background';
@@ -9,14 +10,20 @@ import { Container, Title, List } from './styles';
 export default function Dashboard() {
     const [appointments, setAppointments] = useState([]);
 
-    useEffect(() => {
-        async function loadAppointment() {
-            const response = await api.get('appointments');
-            setAppointments(response.data);
-        }
+    async function loadAppointment() {
+        const response = await api.get('appointments');
+        setAppointments(response.data);
+    }
 
+    /* useEffect(() => {
         loadAppointment();
-    }, []);
+    }, []); */
+
+    useFocusEffect(
+        useCallback(() => {
+            loadAppointment();
+        }, [])
+    );
 
     async function handleCancel(id) {
         const response = await api.delete(`appointments/${id}`);
@@ -29,6 +36,8 @@ export default function Dashboard() {
         );
 
         Alert.alert('OK!', 'Agendamento cancelado com sucesso!');
+        loadAppointment();
+        //find nesse appointment especifico que ta no array e remover ele
     }
 
     return (

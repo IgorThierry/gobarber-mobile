@@ -62,7 +62,16 @@ export default function NewAppointmentRoutes({ navigation }) {
                 name="Confirm"
                 component={Confirm}
                 options={{
-                    headerTitle: 'Confirmar',
+                    headerTitle: 'Confirmar agendamento',
+                    headerLeft: () => (
+                        <TouchableOpacity
+                            onPress={() => {
+                                navigation.navigate('SelectDateTime');
+                            }}
+                        >
+                            <Icon name="chevron-left" color="#fff" size={20} />
+                        </TouchableOpacity>
+                    ),
                 }}
             />
         </NewAppointmentStack.Navigator>
