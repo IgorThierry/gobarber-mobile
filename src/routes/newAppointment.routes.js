@@ -10,18 +10,18 @@ import Confirm from '~/pages/New/Confirm';
 
 const NewAppointmentStack = createStackNavigator();
 
-export default function NewAppointmentRoutes({navigation}) {
+export default function NewAppointmentRoutes({ navigation }) {
     return (
         <NewAppointmentStack.Navigator
             screenOptions={{
-                headerStyle: {
+                /* headerStyle: {
                     backgroundColor: '#7159c1',
-                },
+                }, */
                 headerTintColor: '#fff',
                 headerLeftContainerStyle: {
                     marginLeft: 20,
                 },
-                //headerTransparent: true,
+                headerTransparent: true,
                 headerTitleAlign: 'center',
             }}
             headerMode="float"
@@ -32,7 +32,11 @@ export default function NewAppointmentRoutes({navigation}) {
                 options={{
                     headerTitle: 'Selecione o prestador',
                     headerLeft: () => (
-                        <TouchableOpacity onPress={()=>{navigation.navigate('Dashboard')}}>
+                        <TouchableOpacity
+                            onPress={() => {
+                                navigation.navigate('Dashboard');
+                            }}
+                        >
                             <Icon name="chevron-left" color="#fff" size={20} />
                         </TouchableOpacity>
                     ),
@@ -41,8 +45,26 @@ export default function NewAppointmentRoutes({navigation}) {
             <NewAppointmentStack.Screen
                 name="SelectDateTime"
                 component={SelectDateTime}
+                options={{
+                    headerTitle: 'Selecione o horário',
+                    headerLeft: () => (
+                        <TouchableOpacity
+                            onPress={() => {
+                                navigation.navigate('SelectProvider');
+                            }}
+                        >
+                            <Icon name="chevron-left" color="#fff" size={20} />
+                        </TouchableOpacity>
+                    ),
+                }}
             />
-            <NewAppointmentStack.Screen name="Confirm" component={Confirm} />
+            <NewAppointmentStack.Screen
+                name="Confirm"
+                component={Confirm}
+                options={{
+                    headerTitle: 'Confirmar',
+                }}
+            />
         </NewAppointmentStack.Navigator>
     );
 }

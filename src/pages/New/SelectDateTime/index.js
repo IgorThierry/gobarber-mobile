@@ -1,12 +1,18 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
 
-// import { Container } from './styles';
+import Background from '~/components/Background';
+import DateInput from '~/components/DateInput';
+
+import { Container } from './styles';
 
 export default function SelectDateTime() {
+    const [date, setDate] = useState(new Date());
+
     return (
-        <View>
-            <Text>select date</Text>
-        </View>
+        <Background>
+            <Container>
+                <DateInput date={date} onChange={setDate} />
+            </Container>
+        </Background>
     );
 }
