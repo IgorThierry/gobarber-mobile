@@ -23,6 +23,7 @@ export default function NewAppointmentRoutes({ navigation }) {
                 },
                 headerTransparent: true,
                 headerTitleAlign: 'center',
+                // headerShown: false
             }}
             headerMode="float"
         >
